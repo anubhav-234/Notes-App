@@ -41,7 +41,7 @@ function showItem() {
                       <h5 class="card-title">${element[0]}</h5>
                           <p class="card-text">${element[1]}</p>
                           <button  id="${index}"  onclick="deleteItem(this.id)"
-                     class="btn btn-primary">Delete Node</button>
+                     class="btn btn-primary">Delete Note</button>
                   </div>
             </div>`
     })
