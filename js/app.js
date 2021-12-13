@@ -1,11 +1,12 @@
-console.log("This is my Project of Notes Application ");
+// console.log("This is my Project of Notes Application ");
 showItem();
 
 // Adding Event Listeners to the addBtn
 let addBtn = document.getElementById("addBtn");
 
 addBtn.addEventListener("click", function (e) {
-    console.log("Adding Item");
+    // console.log("Adding Item");
+    let addTitle=document .getElementById('addTitle');
     let addTxt = document.getElementById("addTxt");
     let notes = localStorage.getItem("notes");
    
@@ -16,10 +17,11 @@ addBtn.addEventListener("click", function (e) {
         notesObj = JSON.parse(notes);
     }
 
-    notesObj.push(addTxt.value);
+    notesObj.push([addTitle.value,addTxt.value]);
     localStorage.setItem("notes", JSON.stringify(notesObj));
+    addTitle.value="";
     addTxt.value = "";
-    console.log(notesObj);
+    // console.log(notesObj);
     showItem();
 
 })
@@ -36,8 +38,8 @@ function showItem() {
     notesObj.forEach(function (element, index) {
         html += ` <div class="noteCard mx-2 my-2 card" style="width: 18rem;">
                  <div class="card-body">
-                      <h5 class="card-title">${index+1}</h5>
-                          <p class="card-text">${element}</p>
+                      <h5 class="card-title">${element[0]}</h5>
+                          <p class="card-text">${element[1]}</p>
                           <button  id="${index}"  onclick="deleteItem(this.id)"
                      class="btn btn-primary">Delete Node</button>
                   </div>
@@ -55,7 +57,7 @@ function showItem() {
 
 // adding event for delete button
 function deleteItem(index) {
-    console.log("Deleting Node"+ index);
+    // console.log("Deleting Node"+ index);
     let notes = localStorage.getItem("notes");
    
     if (notes == null) {
@@ -73,7 +75,7 @@ let search=document.getElementById("searchTxt");
 
 search.addEventListener("input",function(e){
   let inputText=search.value;
-    console.log("Event is fired"+ inputText);
+    // console.log("Event is fired"+ inputText);
     let noteCard=document.getElementsByClassName("noteCard");
     Array.from(noteCard).forEach(function(element){
 
@@ -86,7 +88,7 @@ search.addEventListener("input",function(e){
           else{
               element.style.display="none";
           }
-          console.log(cardText);
+        //   console.log(cardText);
 
     })
 })
