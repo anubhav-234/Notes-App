@@ -50,7 +50,7 @@ function showItem() {
         Elem.innerHTML=html;
     }
     else{
-        Elem.innerHTML=`<p class="fw-bolder fs-3">Sorry ! You don't have Notes . </p>`;
+        Elem.innerHTML=`<p class="fw-bolder fs-4"> 😔 Sorry ! No Notes Saved </p>`;
     }
 
 }
